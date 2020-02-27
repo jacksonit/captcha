@@ -29,9 +29,9 @@ class CaptchaServiceProvider extends ServiceProvider
     {
         $this->app->booting(function () {
             $loader = AliasLoader::getInstance();
-            $loader->alias('CaptchaCharge', 'Jacksonit\Captcha\Facades\CaptchaCharge');
+            $loader->alias('CaptchaGIFCharge', 'Jacksonit\Captcha\Facades\CaptchaGIFCharge');
         });
 
-        $this->app->bind('CaptchaCharge', BankCharge::class);
+        $this->app->bind('CaptchaCharge', CaptchaCharge::class);
     }
 }

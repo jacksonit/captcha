@@ -12,9 +12,9 @@ class Captcha
 		$rnd = rand(0, 1000000);
 		$key = strtoupper(substr(md5( time() * $rnd),1,5));
 		$this->clave = $key;
-		$this->captcha = imagecreatefromjpeg('bg.jpg');
+		$this->captcha = imagecreatefromjpeg(__DIR__.'/img/bg.jpg');
 		$posicion_x=2;
-		$font = imageloadfont('font/HomBoldB.gdf');
+		$font = imageloadfont(__DIR__.'/font/HomBoldB.gdf');
 		for($i = 0;$i<strlen($key);$i++){
 			$r=0;
 			$g=189;
