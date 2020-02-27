@@ -1,0 +1,29 @@
+{
+    "name": "jacksonit/captcha",
+    "description": "Captcha GIF website Laravel",
+    "license": "MIT",
+    "keywords": ["laravel", "captcha", "jacksonit"],
+    "authors": [
+        {
+            "name": "Cao Son",
+            "email": "jacksonit.org@gmail.com",
+            "homepage": "http://jacksonit.org"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "illuminate/support": "^5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jacksonit\\Captcha\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jacksonit\\Captcha\\CaptchaServiceProvider"
+            ]
+        }
+    }
+}
