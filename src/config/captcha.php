@@ -1,9 +1,8 @@
 <?php
 return [
     /*
-     * Random captcha
+     * Captcha GIF
      *
      *
      * */
-    'random' => true,
 ];

@@ -48,12 +48,12 @@ Class GIFEncoder {
     ::
     */
     function GIFEncoderInit    (
-                            $GIF_src, $GIF_dly, $GIF_lop, $GIF_dis,
-                            $GIF_red, $GIF_grn, $GIF_blu, $GIF_mod
-                        ) {
+        $GIF_src, $GIF_dly, $GIF_lop, $GIF_dis,
+        $GIF_red, $GIF_grn, $GIF_blu, $GIF_mod
+    ) {
         if ( ! is_array ( $GIF_src ) && ! is_array ( $GIF_tim ) ) {
-            printf    ( "%s: %s", $this->VER, $this->ERR [ 'ERR00' ] );
-            exit    ( 0 );
+            printf ( "%s: %s", $this->VER, $this->ERR [ 'ERR00' ] );
+            exit(0);
         }
         $this->LOP = ( $GIF_lop > -1 ) ? $GIF_lop : 0;
         $this->DIS = ( $GIF_dis > -1 ) ? ( ( $GIF_dis < 3 ) ? $GIF_dis : 3 ) : 2;

@@ -12,17 +12,11 @@ class CaptchaCharge extends Captcha
     function __construct()
     {
         parent::__construct();
-        // if ($aleatorio == 1) {
-        //     $n = rand(1,3);
-        //     $n == 1 ? $this->circulo() : 'no' ;
-        //     $n == 2 ? $this->bum() : 'no' ;
-        //     $n == 3 ? $this->desliz() : 'no' ;
-        // }
     }
 
     public function circulo()
     {
-        $circulo_x = 40;
+        $circulo_x = 20;
         $circulo_y = 0;
         $frames_x = 20;
         for($b=0;$b<$frames_x;$b++){
@@ -37,7 +31,7 @@ class CaptchaCharge extends Captcha
             imagegif($im, $fname);
             $this->frames[] = $fname;
             $this->framed[] = 1;
-            $circulo_y+=10;
+            $circulo_y += 10;
             imagedestroy($im);
         }
         $this->imprimir();
@@ -46,7 +40,7 @@ class CaptchaCharge extends Captcha
     public function bum()
     {
         $frames_x = 30;
-        for($b=0;$b<$frames_x;$b++){
+        for($b=0; $b<$frames_x; $b++){
             $im = imagecreatetruecolor(120, 38);
             imagecopy($im, $this->captcha, 0, 0, 0, 0, imagesx($this->captcha), imagesy($this->captcha));
             //fix
@@ -84,5 +78,12 @@ class CaptchaCharge extends Captcha
             imagedestroy($im);
         }
         $this->imprimir();
+    }
+
+    public function random() {
+        $n = rand(1,3);
+        $n == 1 ? $this->circulo() : 'no' ;
+        $n == 2 ? $this->bum() : 'no' ;
+        $n == 3 ? $this->desliz() : 'no' ;
     }
 }

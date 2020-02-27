@@ -20,9 +20,7 @@ class CaptchaServiceProvider extends ServiceProvider
     public function boot()
     {
         // Publish config files
-        $this->publishes([
-            __DIR__ . '/config/captcha.php' => config_path('captcha.php'),
-        ]);
+
     }
 
     public function register()
