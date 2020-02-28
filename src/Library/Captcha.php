@@ -8,10 +8,9 @@ class Captcha
     protected $captcha;
     protected $clave;
 
-    function __construct()
+    function __construct($clave)
     {
-        $rnd = rand(0, 1000000);
-        $key = strtoupper(substr(md5( time() * $rnd),1,5));
+        $key = $clave;
         $this->clave = $key;
         $this->captcha = imagecreatefromjpeg(__DIR__.'/img/bg.jpg');
         $posicion_x=2;

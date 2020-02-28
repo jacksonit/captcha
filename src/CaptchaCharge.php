@@ -9,13 +9,14 @@ class CaptchaCharge extends Captcha
     public $frames;
     public $framed;
 
-    function __construct()
+    public function __construct()
     {
-        parent::__construct();
+
     }
 
-    public function circulo()
+    public function circulo($clave)
     {
+        parent::__construct($clave);
         $circulo_x = 20;
         $circulo_y = 0;
         $frames_x = 20;
@@ -37,8 +38,9 @@ class CaptchaCharge extends Captcha
         $this->imprimir();
     }
 
-    public function bum()
+    public function bum($clave)
     {
+        parent::__construct($clave);
         $frames_x = 30;
         for($b=0; $b<$frames_x; $b++){
             $im = imagecreatetruecolor(120, 38);
@@ -59,8 +61,9 @@ class CaptchaCharge extends Captcha
         $this->imprimir();
     }
 
-    public function desliz()
+    public function desliz($clave)
     {
+        parent::__construct($clave);
         $imgwidth = imagesx($this->captcha);
         $imgheight = imagesy($this->captcha);
         $frames_x = 30;
@@ -80,10 +83,10 @@ class CaptchaCharge extends Captcha
         $this->imprimir();
     }
 
-    public function random() {
+    public function random($clave) {
         $n = rand(1,3);
-        $n == 1 ? $this->circulo() : 'no' ;
-        $n == 2 ? $this->bum() : 'no' ;
-        $n == 3 ? $this->desliz() : 'no' ;
+        $n == 1 ? $this->circulo($clave) : 'no' ;
+        $n == 2 ? $this->bum($clave) : 'no' ;
+        $n == 3 ? $this->desliz($clave) : 'no' ;
     }
 }
