@@ -76,16 +76,18 @@ Class GIFEncoder {
                 exit    ( 0 );
             }
             for ( $j = ( 13 + 3 * ( 2 << ( ord ( $this->BUF [ $i ] { 10 } ) & 0x07 ) ) ), $k = TRUE; $k; $j++ ) {
-                switch ( $this->BUF [ $i ] { $j } ) {
-                    case "!":
-                        if ( ( substr ( $this->BUF [ $i ], ( $j + 3 ), 8 ) ) == "NETSCAPE" ) {
-                            printf    ( "%s: %s ( %s source )!", $this->VER, $this->ERR [ 'ERR03' ], ( $i + 1 ) );
-                            exit    ( 0 );
-                        }
-                        break;
-                    case ";":
-                        $k = FALSE;
-                        break;
+                if(isset($this->BUF [ $i ])) {
+                    switch ( $this->BUF [ $i ] { $j } ) {
+                        case "!":
+                            if ( ( substr ( $this->BUF [ $i ], ( $j + 3 ), 8 ) ) == "NETSCAPE" ) {
+                                printf    ( "%s: %s ( %s source )!", $this->VER, $this->ERR [ 'ERR03' ], ( $i + 1 ) );
+                                exit    ( 0 );
+                            }
+                            break;
+                        case ";":
+                            $k = FALSE;
+                            break;
+                    }
                 }
             }
         }
